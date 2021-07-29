@@ -80,20 +80,19 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  width: 50rem;
+  width: 48rem;
 `
 const Name = styled.h3`
   font-weight: 300;
   font-size: 2rem;
-  line-height: 3rem;
   letter-spacing: 1.3rem;
   text-transform: uppercase;
+  margin-bottom: -15px;
 `
 
 const Heading = styled.h1`
   font-weight: bold;
   font-size: 6rem;
-  line-height: 9rem;
   text-shadow: ${({ theme }) => theme.textShadow};
 `
 
@@ -101,7 +100,7 @@ const Text = styled.p`
   font-weight: normal;
   font-size: 1.5rem;
   line-height: 2.7rem;
-  margin: 3rem 0;
+  margin: 3rem 0 3.5rem 0;
 `
 
 const ButtonContainer = styled.div`
