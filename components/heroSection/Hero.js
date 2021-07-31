@@ -33,6 +33,7 @@ function Hero() {
       <Container>
         <div>
           <Name>I'm Igor</Name>
+
           <Heading>Web Developer</Heading>
         </div>
         <Text>
