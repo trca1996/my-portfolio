@@ -2,13 +2,33 @@ import styled from 'styled-components'
 
 const TechCard = ({ tech }) => {
   return (
-    <div>
+    <Card>
       <img src={`/images/icons/${tech}.svg`} alt={`${tech}`} />
       <p>{tech}</p>
-    </div>
+    </Card>
   )
 }
 
-const Card = styled.div``
+const Card = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  background-color: ${({ theme }) => theme.colors.secondary};
+  margin: 2rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 3px;
+  width: max-content;
+  text-decoration: none;
+
+  img {
+    filter: ${({ theme }) => theme.filter.shadowMedium};
+  }
+
+  p {
+    filter: ${({ theme }) => theme.filter.shadowSmall};
+  }
+`
 
 export default TechCard

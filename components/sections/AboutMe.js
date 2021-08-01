@@ -3,16 +3,16 @@ import TechCard from '../cards/TechCard'
 import SectionLayout from '../layout/SectionLayout'
 
 const techs = [
-  'html',
-  'css',
-  'js',
-  'react',
-  'next',
-  'redux',
-  'sass',
-  'styled-components',
-  'node',
-  'mongodb',
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'ReactJS',
+  'NextJS',
+  'Redux',
+  'SASS',
+  'Styled-Components',
+  'NodeJS',
+  'MongoDB',
 ]
 
 const AboutMe = () => {
@@ -25,9 +25,11 @@ const AboutMe = () => {
       </Text>
       <br />
       <Text>My tech stack:</Text>
-      {techs.map((tech) => (
-        <TechCard key={tech} tech={tech} />
-      ))}
+      <List>
+        {techs.map((tech) => (
+          <TechCard key={tech} tech={tech} />
+        ))}
+      </List>
     </SectionLayout>
   )
 }
@@ -37,6 +39,12 @@ const Text = styled.p`
   font-size: 2rem;
   line-height: 3rem;
   text-align: justify;
+`
+
+const List = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `
 
 export default AboutMe
