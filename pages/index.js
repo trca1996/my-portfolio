@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Hero from '../components/sections/HeroSection'
+import Hero from '../components/sections/Hero'
 import { Fragment } from 'react'
 import AboutMe from '../components/sections/AboutMe'
 import SocialNetworks from '../components/SocialNetworks'
