@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import VerticalAlignBottomIcon from '@material-ui/icons/VerticalAlignBottom'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
-import useHover from './../../helper/useHover'
+import useHover from '../../helper/useHover'
 import { useEffect, useState } from 'react'
 import copy from 'copy-to-clipboard'
 
