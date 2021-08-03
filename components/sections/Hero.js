@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Image from 'next/image'
 import VerticalAlignBottomIcon from '@material-ui/icons/VerticalAlignBottom'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
 import useHover from '../../helper/useHover'
@@ -59,7 +60,15 @@ function Hero() {
         </ButtonContainer>
       </Container>
 
-      <StyledImage src="/images/hero-img.png" alt="Cover-photo" />
+      <ImageContainer>
+        <Image
+          src="/images/hero-img.png"
+          alt="Cover-photo"
+          layout="fill"
+          objectFit="cover"
+          priority
+        />
+      </ImageContainer>
     </Section>
   )
 }
@@ -179,13 +188,12 @@ const ButtonTwo = styled.button`
   }
 `
 
-const StyledImage = styled.img`
+const ImageContainer = styled.div`
   position: absolute;
   top: 0;
   right: 0;
   width: 60%;
   height: 100%;
-  object-fit: cover;
   z-index: -1;
 `
 
