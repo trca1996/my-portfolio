@@ -6,7 +6,7 @@ const MyProjects = ({ projects }) => {
   return (
     <SectionLayout title="Some Things I’ve Build">
       {projects.map(
-        ({ name, description, tech, image, siteURL, gitHub, _id }) => (
+        ({ name, description, tech, image, siteURL, gitHub, _id }, i) => (
           <ProjectCard
             key={_id}
             name={name}
@@ -15,6 +15,7 @@ const MyProjects = ({ projects }) => {
             image={image}
             siteURL={siteURL}
             gitHub={gitHub}
+            align={i % 2 ? 'left' : 'right'}
           />
         ),
       )}

@@ -29,12 +29,16 @@ const theme = {
     primary: '#42B883',
     secondary: '#4C6885',
     textColor: 'whitesmoke',
+    textColorSecondary: '#cfcfcf',
   },
   filter: {
     shadowSmall: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
     shadowMedium: 'drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.25))',
     shadowBig: 'drop-shadow(0px 10px 6px rgba(0, 0, 0, 0.25))',
     shadowStrong: 'drop-shadow(0px 10px 6px rgba(0, 0, 0, 0.8))',
+  },
+  boxShadow: {
+    shadowSmall: '0px 4px 4px rgba(0, 0, 0, 0.25)',
   },
   textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25);',
 }
