@@ -5,6 +5,7 @@ import AboutMe from '../components/sections/AboutMe'
 import SocialNetworks from '../components/SocialNetworks'
 import MyProjects from '../components/sections/MyProjects'
 import { connectToDatabase } from '../helper/db-util'
+import Contact from '../components/sections/Contact'
 
 const Home = (props) => {
   const projects = props.data
@@ -14,6 +15,7 @@ const Home = (props) => {
       <Hero />
       <AboutMe />
       <MyProjects projects={projects} />
+      <Contact />
       <SocialNetworks />
     </Fragment>
   )
