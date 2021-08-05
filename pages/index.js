@@ -1,4 +1,3 @@
-import styled from 'styled-components'
 import Hero from '../components/sections/Hero'
 import { Fragment } from 'react'
 import AboutMe from '../components/sections/AboutMe'
@@ -6,6 +5,7 @@ import SocialNetworks from '../components/SocialNetworks'
 import MyProjects from '../components/sections/MyProjects'
 import { connectToDatabase } from '../helper/db-util'
 import Contact from '../components/sections/Contact'
+import AlertMessage from '../components/AlertMessage'
 
 const Home = (props) => {
   const projects = props.data
@@ -18,6 +18,7 @@ const Home = (props) => {
       <MyProjects projects={projects} />
       <Contact myEmail={myEmail} />
       <SocialNetworks />
+      <AlertMessage />
     </Fragment>
   )
 }

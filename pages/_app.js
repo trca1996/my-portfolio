@@ -1,4 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import AlertContext from '../context/alertContext'
 
 const GlobalStyle = createGlobalStyle`
  *,
@@ -49,7 +50,9 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <AlertContext>
+          <Component {...pageProps} />
+        </AlertContext>
       </ThemeProvider>
     </>
   )

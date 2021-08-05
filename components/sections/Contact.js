@@ -5,27 +5,87 @@ import TrendingFlatIcon from '@material-ui/icons/TrendingFlat'
 import { StylesProvider } from '@material-ui/core/styles'
 import CopyButton from '../buttons/CopyButton'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
+import axios from 'axios'
+import { useForm } from 'react-hook-form'
+import { AlertContextApi } from '../../context/alertContext'
+import { useContext } from 'react'
 
 const Contact = ({ myEmail }) => {
+  const { alertRender } = useContext(AlertContextApi)
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+    reset,
+  } = useForm()
+
+  const sendEmail = async (data) => {
+    alertRender('Sending message...', 'info')
+    try {
+      const response = await axios.post('/api/sendemail', data)
+      alertRender(response.data.message, 'success')
+    } catch (err) {
+      console.log(`🧨🧨🧨 ${err}`)
+      alertRender('Send email failed, try again later', 'error')
+    }
+
+    reset()
+  }
+
   return (
     <SectionLayout title="Interested? Let’s Get In Touch!">
       <Container>
-        <MessageContainer>
+        <MessageContainer
+          autoCorrect="off"
+          spellCheck="false"
+          autoComplete="off"
+          onSubmit={handleSubmit(sendEmail)}
+        >
           <Title>Write Me a Message</Title>
 
           <InputContainer>
             <Label htmlFor="name">Name</Label>
-            <Input type="text" id="name" required />
+            <Input
+              id="name"
+              {...register('name', {
+                required: true,
+                minLength: 3,
+                pattern: /^[A-Z a-z]+$/i,
+              })}
+            />
+            {errors.name &&
+              `First name is required, please enter the full name and use only letters`}
           </InputContainer>
 
           <InputContainer>
             <Label htmlFor="email">Email</Label>
-            <Input type="email" id="email" required />
+            <Input
+              id="email"
+              {...register('email', {
+                required: true,
+                pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+              })}
+            />
+            {errors.email?.type === 'required' && 'Email is required'}
+            {errors.email?.type === 'pattern' && 'Incorrect email address'}
           </InputContainer>
 
           <InputContainer>
             <Label htmlFor="message">Message</Label>
-            <InputArea type="text" id="message" rows={5} required />
+
+            <InputArea
+              id="message"
+              rows={5}
+              {...register('message', { required: true, minLength: 50 })}
+            />
+            <Characters>{`${
+              watch('message') ? watch('message').length : 0
+            } characters`}</Characters>
+            {errors.message?.type === 'required' && 'Message is required'}
+            {errors.message?.type === 'minLength' &&
+              'Message must have minimum 50 characters'}
           </InputContainer>
 
           <StylesProvider injectFirst>
@@ -78,6 +138,8 @@ const Label = styled.label`
   font-size: 1.5rem;
   text-shadow: ${({ theme }) => theme.textShadow};
 `
+
+const Characters = styled.p``
 
 const Input = styled.input`
   height: 4rem;
