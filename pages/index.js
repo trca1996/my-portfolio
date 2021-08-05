@@ -9,13 +9,14 @@ import Contact from '../components/sections/Contact'
 
 const Home = (props) => {
   const projects = props.data
+  const myEmail = 'igor.trnko@yahoo.com'
 
   return (
     <Fragment>
-      <Hero />
+      <Hero myEmail={myEmail} />
       <AboutMe />
       <MyProjects projects={projects} />
-      <Contact />
+      <Contact myEmail={myEmail} />
       <SocialNetworks />
     </Fragment>
   )

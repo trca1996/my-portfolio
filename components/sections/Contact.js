@@ -1,11 +1,12 @@
 import SectionLayout from '../layout/SectionLayout'
 import styled from 'styled-components'
-
 import { Button } from '@material-ui/core'
 import TrendingFlatIcon from '@material-ui/icons/TrendingFlat'
 import { StylesProvider } from '@material-ui/core/styles'
+import CopyButton from '../buttons/CopyButton'
+import MailOutlineIcon from '@material-ui/icons/MailOutline'
 
-const Contact = () => {
+const Contact = ({ myEmail }) => {
   return (
     <SectionLayout title="Interested? Let’s Get In Touch!">
       <Container>
@@ -33,7 +34,13 @@ const Contact = () => {
             </StyledButton>
           </StylesProvider>
         </MessageContainer>
-        <EmailContainer></EmailContainer>
+        <EmailContainer>
+          <div>
+            <Text>Or Write Me an Email 😁</Text>
+            <Text>Copy Email Address Here &darr;</Text>
+          </div>
+          <CopyButton buttonText={myEmail} Icon={MailOutlineIcon} />
+        </EmailContainer>
       </Container>
     </SectionLayout>
   )
@@ -41,6 +48,7 @@ const Contact = () => {
 
 const Container = styled.div`
   display: flex;
+  justify-content: space-between;
 `
 
 const MessageContainer = styled.form`
@@ -97,6 +105,18 @@ const StyledButton = styled(Button)`
   font-size: 1.2rem;
 `
 
-const EmailContainer = styled.div``
+const EmailContainer = styled.div`
+  align-self: center;
+  width: min-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`
+
+const Text = styled.h5`
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 3.5rem;
+`
 
 export default Contact

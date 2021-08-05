@@ -1,34 +1,10 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 import VerticalAlignBottomIcon from '@material-ui/icons/VerticalAlignBottom'
+import CopyButton from '../buttons/CopyButton'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
-import useHover from '../../helper/useHover'
-import { useEffect, useState } from 'react'
-import copy from 'copy-to-clipboard'
 
-function Hero() {
-  const [hovering, hoverProps] = useHover()
-  const [copyText, setCopyText] = useState(null)
-  const myEmail = 'igor.trnko@yahoo.com'
-  let timer
-
-  const copyEmail = (e) => {
-    setCopyText(e.target.closest('.buttonEmail').value)
-    copy(e.target.closest('.buttonEmail').value)
-  }
-
-  useEffect(() => {
-    if (copyText) {
-      timer = setTimeout(() => {
-        setCopyText(null)
-      }, 2500)
-    }
-
-    return () => {
-      if (timer) clearTimeout(timer)
-    }
-  })
-
+function Hero({ myEmail }) {
   return (
     <Section>
       <Container>
@@ -47,7 +23,7 @@ function Hero() {
             Download CV
           </ButtonOne>
 
-          <ButtonTwo
+          {/* <ButtonTwo
             className="buttonEmail"
             value={myEmail}
             {...hoverProps}
@@ -56,7 +32,8 @@ function Hero() {
             <div></div>
             <MailOutlineIcon fontSize="large" />
             {copyText ? 'Copied!' : hovering ? 'Copy to clipboard' : myEmail}
-          </ButtonTwo>
+          </ButtonTwo> */}
+          <CopyButton buttonText={myEmail} Icon={MailOutlineIcon} />
         </ButtonContainer>
       </Container>
 
