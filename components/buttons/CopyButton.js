@@ -8,8 +8,6 @@ const CopyButton = ({ Icon, buttonText }) => {
   const [hovering, hoverProps] = useHover()
   const [copyText, setCopyText] = useState(null)
 
-  let timer
-
   const onCopyText = (e) => {
     setCopyText(e.target.closest('.buttonEmail').value)
     copy(e.target.closest('.buttonEmail').value)
@@ -17,13 +15,13 @@ const CopyButton = ({ Icon, buttonText }) => {
 
   useEffect(() => {
     if (copyText) {
-      timer = setTimeout(() => {
+      const timer = setTimeout(() => {
         setCopyText(null)
       }, 2500)
-    }
 
-    return () => {
-      if (timer) clearTimeout(timer)
+      return () => {
+        clearTimeout(timer)
+      }
     }
   })
 
