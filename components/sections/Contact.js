@@ -9,6 +9,7 @@ import axios from 'axios'
 import { useForm } from 'react-hook-form'
 import { AlertContextApi } from '../../context/alertContext'
 import { useContext } from 'react'
+import { extraSmallScreen } from '../../style/sizeVariables'
 
 const Contact = ({ myEmail }) => {
   const { alertRender } = useContext(AlertContextApi)
@@ -109,6 +110,14 @@ const Contact = ({ myEmail }) => {
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 100%;
+
+  @media only screen and (max-width: ${extraSmallScreen}) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+  }
 `
 
 const MessageContainer = styled.form`
@@ -119,6 +128,10 @@ const MessageContainer = styled.form`
   display: flex;
   flex-direction: column;
   width: 50%;
+
+  @media only screen and (max-width: ${extraSmallScreen}) {
+    width: 80%;
+  }
 `
 
 const Title = styled.h5`

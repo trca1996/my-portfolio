@@ -7,6 +7,7 @@ import { connectToDatabase } from '../helper/db-util'
 import Contact from '../components/sections/Contact'
 import AlertMessage from '../components/AlertMessage'
 import styled from 'styled-components'
+import { extraSmallScreen } from '../style/sizeVariables'
 
 const Home = (props) => {
   const projects = props.data
@@ -44,6 +45,10 @@ const CreatedBy = styled.p`
   background-color: ${({ theme }) => theme.colors.bgColor};
   font-weight: 200;
   text-align: center;
+
+  @media only screen and (max-width: ${extraSmallScreen}) {
+    padding-bottom: 12rem;
+  }
 `
 
 export default Home

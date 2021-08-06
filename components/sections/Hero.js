@@ -3,6 +3,12 @@ import Image from 'next/image'
 import VerticalAlignBottomIcon from '@material-ui/icons/VerticalAlignBottom'
 import CopyButton from '../buttons/CopyButton'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
+import {
+  extraSmallScreen,
+  largeScreen,
+  mediumScreen,
+  smallScreen,
+} from '../../style/sizeVariables'
 
 function Hero({ myEmail }) {
   return (
@@ -23,16 +29,6 @@ function Hero({ myEmail }) {
             Download CV
           </ButtonOne>
 
-          {/* <ButtonTwo
-            className="buttonEmail"
-            value={myEmail}
-            {...hoverProps}
-            onClick={copyEmail}
-          >
-            <div></div>
-            <MailOutlineIcon fontSize="large" />
-            {copyText ? 'Copied!' : hovering ? 'Copy to clipboard' : myEmail}
-          </ButtonTwo> */}
           <CopyButton buttonText={myEmail} Icon={MailOutlineIcon} />
         </ButtonContainer>
       </Container>
@@ -61,6 +57,25 @@ const Section = styled.section`
   height: 100vh;
   position: relative;
   padding: 0 12rem;
+
+  @media only screen and (min-width: ${largeScreen}) {
+    padding: 0 20rem;
+  }
+
+  @media only screen and (max-width: ${mediumScreen}) {
+    background: linear-gradient(
+      270deg,
+      rgba(53, 73, 95, 0.9) 0%,
+      rgba(53, 73, 95) 50%,
+      rgba(53, 73, 95, 0.9) 100%
+    );
+    display: flex;
+    justify-content: center;
+  }
+
+  @media only screen and (max-width: ${extraSmallScreen}) {
+    height: 90vh;
+  }
 `
 const Container = styled.div`
   display: flex;
@@ -68,6 +83,10 @@ const Container = styled.div`
   justify-content: center;
   height: 100%;
   width: 48rem;
+
+  @media only screen and (max-width: ${mediumScreen}) {
+    gap: 3rem;
+  }
 `
 const Name = styled.h3`
   font-weight: 300;
@@ -88,6 +107,14 @@ const Text = styled.p`
   font-size: 1.5rem;
   line-height: 2.7rem;
   margin: 3rem 0 3.5rem 0;
+
+  @media only screen and (max-width: ${mediumScreen}) {
+    line-height: 3rem;
+  }
+
+  @media only screen and (max-width: ${smallScreen}) {
+    font-size: 2rem;
+  }
 `
 
 const ButtonContainer = styled.div`
@@ -121,49 +148,6 @@ const ButtonOne = styled.a`
     filter: ${({ theme }) => theme.filter.shadowMedium};
   }
 `
-const ButtonTwo = styled.button`
-  font-family: 'Poppins', sans-serif;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  padding: 1.2rem 2.5rem;
-  gap: 1rem;
-  font-weight: 500;
-  font-size: 1.5rem;
-  color: ${({ theme }) => theme.colors.textColor};
-  outline: none;
-  border: none;
-  filter: ${({ theme }) => theme.filter.shadowSmall};
-  transition: all 0.15s;
-  cursor: pointer;
-  background-color: ${({ theme }) => theme.colors.secondary};
-  min-width: 25.5rem;
-  position: relative;
-
-  &:hover {
-    transform: translateY(-3px);
-    filter: ${({ theme }) => theme.filter.shadowBig};
-  }
-
-  &:active {
-    transform: translateY(-1.5px);
-    filter: ${({ theme }) => theme.filter.shadowMedium};
-  }
-
-  div {
-    height: 100%;
-    width: 0;
-    position: absolute;
-    left: 0;
-    background-color: ${({ theme }) => theme.colors.primary};
-    transition: width 0.3s;
-    z-index: -1;
-  }
-
-  &:hover > div {
-    width: 100%;
-  }
-`
 
 const ImageContainer = styled.div`
   position: absolute;
@@ -172,6 +156,10 @@ const ImageContainer = styled.div`
   width: 60%;
   height: 100%;
   z-index: -1;
+
+  @media only screen and (max-width: ${mediumScreen}) {
+    width: 100%;
+  }
 `
 
 export default Hero

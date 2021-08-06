@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 import Link from 'next/link'
+import { extraSmallScreen, largeScreen } from '../style/sizeVariables'
 
 const SocialNetworks = () => {
   return (
     <Socials>
+      <DisplayLine />
       <Image>
         <Link href="https://www.linkedin.com">
           <a target="_blank">
@@ -37,6 +39,22 @@ const Socials = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 1000;
+
+  @media only screen and (min-width: ${largeScreen}) {
+    left: 10rem;
+  }
+
+  @media only screen and (max-width: ${extraSmallScreen}) {
+    background-color: ${({ theme }) => theme.colors.primary};
+    flex-direction: row;
+    left: 0;
+    right: 0;
+    justify-content: space-between;
+    height: 11rem;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
 `
 
 const Image = styled.div`
@@ -58,6 +76,18 @@ const Line = styled.div`
   width: 2px;
   height: 12rem;
   filter: ${({ theme }) => theme.filter.shadowBig};
+
+  @media only screen and (max-width: ${extraSmallScreen}) {
+    width: 25%;
+    height: 2px;
+  }
+`
+
+const DisplayLine = styled(Line)`
+  display: none;
+  @media only screen and (max-width: ${extraSmallScreen}) {
+    display: block;
+  }
 `
 
 export default SocialNetworks

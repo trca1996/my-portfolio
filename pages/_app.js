@@ -1,5 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import AlertContext from '../context/alertContext'
+import { smallScreen } from '../style/sizeVariables'
 
 const GlobalStyle = createGlobalStyle`
  *,
@@ -14,6 +15,9 @@ html {
   // This defines what 1rem is -- 10px --
   font-size: 62.5%;
  
+  @media only screen and (max-width: ${smallScreen}){
+    font-size: 50%;
+  }
 }
 
 body {
@@ -27,6 +31,7 @@ body {
 const theme = {
   colors: {
     bgColor: '#35495E',
+    bgColorTransparent: 'rgba(53, 73, 95, 0.9)',
     primary: '#42B883',
     secondary: '#4C6885',
     textColor: 'whitesmoke',

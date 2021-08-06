@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 import Link from 'next/link'
+import { extraSmallScreen, smallScreen } from '../../style/sizeVariables'
 
 const ProjectCard = ({
   name,
@@ -57,6 +58,15 @@ const ContentContainer = styled.div`
   z-index: 100;
   box-shadow: ${({ theme }) => theme.boxShadow.shadowSmall};
   transition: all 0.2s ease-in-out;
+
+  @media only screen and (max-width: ${extraSmallScreen}) {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -5px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 `
 
 const Container = styled.div`
@@ -68,6 +78,12 @@ const Container = styled.div`
   &:hover ${ContentContainer} {
     background-color: ${({ theme }) => theme.colors.primary};
   }
+
+  @media only screen and (max-width: ${extraSmallScreen}) {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
 `
 
 const ImageContainer = styled.div`
@@ -76,6 +92,11 @@ const ImageContainer = styled.div`
   position: relative;
   border-radius: 1rem;
   overflow: hidden;
+
+  @media only screen and (max-width: ${extraSmallScreen}) {
+    z-index: 150;
+    width: 100%;
+  }
 `
 
 const StyledImage = styled(Image)`
@@ -89,6 +110,13 @@ const Name = styled.h4`
   top: -3.5rem;
   right: ${({ align }) => (align === 'right' ? '0' : 'auto')};
   left: ${({ align }) => (align === 'left' ? '0' : 'auto')};
+
+  @media only screen and (max-width: ${extraSmallScreen}) {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+  }
 `
 
 const Description = styled.p`
@@ -96,6 +124,15 @@ const Description = styled.p`
   font-size: 1.2rem;
   line-height: 1.8rem;
   text-align: ${({ align }) => `${align}`};
+
+  @media only screen and (max-width: ${smallScreen}) {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+  }
+
+  @media only screen and (max-width: ${extraSmallScreen}) {
+    text-align: left;
+  }
 `
 
 const BottomItems = styled.div`
@@ -103,6 +140,20 @@ const BottomItems = styled.div`
   bottom: -6.5rem;
   right: ${({ align }) => (align === 'right' ? '0' : 'auto')};
   left: ${({ align }) => (align === 'left' ? '0' : 'auto')};
+
+  @media only screen and (max-width: ${smallScreen}) {
+    bottom: -7.8rem;
+  }
+
+  @media only screen and (max-width: ${extraSmallScreen}) {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 `
 
 const Techs = styled.ul`
@@ -113,6 +164,7 @@ const Techs = styled.ul`
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 `
 const Tech = styled.li``
 
@@ -125,6 +177,8 @@ const Icons = styled.div`
 `
 const Icon = styled.img`
   transition: all 0.2s ease-in-out;
+  width: 2.7rem;
+  height: 2.7rem;
 
   &:hover {
     filter: ${({ theme }) => theme.filter.shadowStrong};
