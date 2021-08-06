@@ -10,11 +10,11 @@ module.exports = class Email {
 
   newTransport() {
     return nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 587,
+      host: process.env.EMAIL_HOST,
+      port: process.env.EMAIL_PORT,
       auth: {
-        user: 'trcadevtest@gmail.com',
-        pass: '9657Trcadev.,',
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     })
   }
@@ -27,7 +27,7 @@ module.exports = class Email {
     // 2) Define email options
     const mailOptions = {
       from: this.from,
-      to: 'igor.trnko@yahoo.com',
+      to: process.env.MY_EMAIL,
       subject: 'Message from Portfolio',
       text: text,
     }

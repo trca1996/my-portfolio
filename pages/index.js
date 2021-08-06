@@ -6,6 +6,7 @@ import MyProjects from '../components/sections/MyProjects'
 import { connectToDatabase } from '../helper/db-util'
 import Contact from '../components/sections/Contact'
 import AlertMessage from '../components/AlertMessage'
+import styled from 'styled-components'
 
 const Home = (props) => {
   const projects = props.data
@@ -19,6 +20,7 @@ const Home = (props) => {
       <Contact myEmail={myEmail} />
       <SocialNetworks />
       <AlertMessage />
+      <CreatedBy>© 2021 by Igor Trnko. All rights reserved.</CreatedBy>
     </Fragment>
   )
 }
@@ -35,5 +37,13 @@ export async function getServerSideProps() {
     props: { data: JSON.parse(JSON.stringify(data)) },
   }
 }
+
+const CreatedBy = styled.p`
+  font-size: 1.5rem;
+  color: ${({ theme }) => theme.colors.input};
+  background-color: ${({ theme }) => theme.colors.bgColor};
+  font-weight: 200;
+  text-align: center;
+`
 
 export default Home
