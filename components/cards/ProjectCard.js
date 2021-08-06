@@ -31,13 +31,13 @@ const ProjectCard = ({
           <Icons align={align}>
             {gitHub ? (
               <Link href={gitHub}>
-                <a target="_blank">
+                <a target="_blank" rel="noopener">
                   <Icon src="/images/icons/GitHubGray.svg" alt="GitHubIcon" />
                 </a>
               </Link>
             ) : null}
             <Link href={siteURL}>
-              <a target="_blank">
+              <a target="_blank" rel="noopener">
                 <Icon src="/images/icons/OpenWindow.svg" alt="OpenWindowIcon" />
               </a>
             </Link>

@@ -8,21 +8,21 @@ const SocialNetworks = () => {
       <DisplayLine />
       <Image>
         <Link href="https://www.linkedin.com">
-          <a target="_blank">
+          <a target="_blank" rel="noopener">
             <img src="/images/icons/LinkedIn.svg" alt="LinkedIn" />
           </a>
         </Link>
       </Image>
       <Image>
         <Link href="https://www.facebook.com/igor.trnko/">
-          <a target="_blank">
+          <a target="_blank" rel="noopener">
             <img src="/images/icons/Facebook.svg" alt="Facebook" />
           </a>
         </Link>
       </Image>
       <Image>
         <Link href="https://github.com/trca1996">
-          <a target="_blank">
+          <a target="_blank" rel="noopener">
             <img src="/images/icons/GitHub.svg" alt="GitHub" />
           </a>
         </Link>
