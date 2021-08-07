@@ -20,6 +20,7 @@ const ProjectCard = ({
 
       <ContentContainer align={align}>
         <Name align={align}>{name}</Name>
+
         <Description align={align}>{description}</Description>
 
         <BottomItems align={align}>
@@ -126,33 +127,35 @@ const Description = styled.p`
   text-align: ${({ align }) => `${align}`};
 
   @media only screen and (max-width: ${smallScreen}) {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     line-height: 2.5rem;
+    text-align: justify;
   }
 
   @media only screen and (max-width: ${extraSmallScreen}) {
-    text-align: left;
+    text-align: justify;
   }
 `
 
 const BottomItems = styled.div`
   position: absolute;
-  bottom: -6.5rem;
+  bottom: -4rem;
   right: ${({ align }) => (align === 'right' ? '0' : 'auto')};
   left: ${({ align }) => (align === 'left' ? '0' : 'auto')};
 
-  @media only screen and (max-width: ${smallScreen}) {
-    bottom: -7.8rem;
-  }
+  display: flex;
+  flex-direction: ${({ align }) => (align === 'right' ? 'row' : 'row-reverse')};
+  justify-content: space-between;
+  width: calc(100% - 8rem);
 
   @media only screen and (max-width: ${extraSmallScreen}) {
     position: relative;
     bottom: auto;
     right: auto;
     left: auto;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    flex-direction: row;
   }
 `
 
@@ -163,7 +166,6 @@ const Techs = styled.ul`
   color: ${({ theme }) => theme.colors.textColorSecondary};
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
   flex-wrap: wrap;
 `
 const Tech = styled.li``

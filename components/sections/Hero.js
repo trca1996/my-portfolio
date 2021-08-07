@@ -120,6 +120,7 @@ const Text = styled.p`
 const ButtonContainer = styled.div`
   display: flex;
   gap: 2.5rem;
+  flex-wrap: wrap;
 `
 const ButtonOne = styled.a`
   font-family: 'Poppins', sans-serif;
