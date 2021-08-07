@@ -144,14 +144,16 @@ const ButtonOne = styled.a`
   transition: all 0.15s;
   cursor: pointer;
 
-  &:hover {
-    transform: translateY(-3px);
-    filter: ${({ theme }) => theme.filter.shadowBig};
-  }
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-3px);
+      filter: ${({ theme }) => theme.filter.shadowBig};
+    }
 
-  &:active {
-    transform: translateY(-1.5px);
-    filter: ${({ theme }) => theme.filter.shadowMedium};
+    &:active {
+      transform: translateY(-1.5px);
+      filter: ${({ theme }) => theme.filter.shadowMedium};
+    }
   }
 `
 

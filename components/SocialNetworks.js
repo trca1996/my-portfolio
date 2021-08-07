@@ -64,9 +64,11 @@ const Image = styled.div`
     transition: all 0.2s ease-in-out;
     filter: ${({ theme }) => theme.filter.shadowBig};
 
-    &:hover {
-      transform: scale(1.3);
-      filter: ${({ theme }) => theme.filter.shadowStrong};
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.3);
+        filter: ${({ theme }) => theme.filter.shadowStrong};
+      }
     }
   }
 `

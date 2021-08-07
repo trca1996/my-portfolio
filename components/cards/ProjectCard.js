@@ -76,8 +76,10 @@ const Container = styled.div`
   align-items: center;
   flex-direction: ${({ align }) => (align === 'right' ? 'row' : 'row-reverse')};
 
-  &:hover ${ContentContainer} {
-    background-color: ${({ theme }) => theme.colors.primary};
+  @media (hover: hover) {
+    &:hover ${ContentContainer} {
+      background-color: ${({ theme }) => theme.colors.primary};
+    }
   }
 
   @media only screen and (max-width: ${extraSmallScreen}) {
@@ -182,9 +184,11 @@ const Icon = styled.img`
   width: 2.7rem;
   height: 2.7rem;
 
-  &:hover {
-    filter: ${({ theme }) => theme.filter.shadowStrong};
-    transform: scale(1.3);
+  @media (hover: hover) {
+    &:hover {
+      filter: ${({ theme }) => theme.filter.shadowStrong};
+      transform: scale(1.3);
+    }
   }
 `
 

@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import styled from 'styled-components'
 import useHover from '../../helper/useHover'
 import copy from 'copy-to-clipboard'
+import { isMobile } from 'react-device-detect'
 
 const CopyButton = ({ Icon, buttonText }) => {
   const [hovering, hoverProps] = useHover()
@@ -34,7 +35,13 @@ const CopyButton = ({ Icon, buttonText }) => {
     >
       <div></div>
       {Icon && <Icon fontSize="large" />}
-      {copyText ? 'Copied!' : hovering ? 'Copy to clipboard' : buttonText}
+      {copyText
+        ? 'Copied!'
+        : hovering
+        ? isMobile
+          ? buttonText
+          : 'Copy to clipboard'
+        : buttonText}
     </Button>
   )
 }
@@ -58,14 +65,16 @@ const Button = styled.button`
   min-width: 25.5rem;
   position: relative;
 
-  &:hover {
-    transform: translateY(-3px);
-    filter: ${({ theme }) => theme.filter.shadowBig};
-  }
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-3px);
+      filter: ${({ theme }) => theme.filter.shadowBig};
+    }
 
-  &:active {
-    transform: translateY(-1.5px);
-    filter: ${({ theme }) => theme.filter.shadowMedium};
+    &:active {
+      transform: translateY(-1.5px);
+      filter: ${({ theme }) => theme.filter.shadowMedium};
+    }
   }
 
   div {
