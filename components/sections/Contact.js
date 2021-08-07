@@ -134,7 +134,7 @@ const MessageContainer = styled.form`
   }
 `
 
-const Title = styled.h5`
+const Title = styled.h4`
   font-weight: bold;
   font-size: 2rem;
   text-shadow: ${({ theme }) => theme.textShadow};
