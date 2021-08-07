@@ -59,6 +59,7 @@ const ContentContainer = styled.div`
   z-index: 100;
   box-shadow: ${({ theme }) => theme.boxShadow.shadowSmall};
   transition: all 0.2s ease-in-out;
+  width: 100%;
 
   @media only screen and (max-width: ${extraSmallScreen}) {
     margin-left: auto;
@@ -75,6 +76,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: ${({ align }) => (align === 'right' ? 'row' : 'row-reverse')};
+  width: 100%;
 
   @media (hover: hover) {
     &:hover ${ContentContainer} {
