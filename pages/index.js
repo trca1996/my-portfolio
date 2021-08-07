@@ -8,6 +8,7 @@ import Contact from '../components/sections/Contact'
 import AlertMessage from '../components/AlertMessage'
 import styled from 'styled-components'
 import { extraSmallScreen } from '../style/sizeVariables'
+import HeadComponent from '../components/HeadComponent'
 
 const Home = (props) => {
   const projects = props.data
@@ -15,6 +16,7 @@ const Home = (props) => {
 
   return (
     <Fragment>
+      <HeadComponent />
       <Hero myEmail={myEmail} />
       <AboutMe />
       <MyProjects projects={projects} />
