@@ -7,6 +7,7 @@ import {
   extraSmallScreen,
   largeScreen,
   mediumScreen,
+  mobileScreen,
   smallScreen,
 } from '../../style/sizeVariables'
 
@@ -93,13 +94,17 @@ const Name = styled.h3`
   font-size: 2rem;
   letter-spacing: 1.3rem;
   text-transform: uppercase;
-  margin-bottom: -15px;
+
+  @media only screen and (max-width: ${mobileScreen}) {
+    margin-bottom: 10px;
+  }
 `
 
 const Heading = styled.h1`
   font-weight: bold;
   font-size: 6rem;
   text-shadow: ${({ theme }) => theme.textShadow};
+  line-height: 1;
 `
 
 const Text = styled.p`
