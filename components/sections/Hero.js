@@ -10,28 +10,34 @@ import {
   mobileScreen,
   smallScreen,
 } from '../../style/sizeVariables'
+import { JackInTheBox, Fade } from 'react-awesome-reveal'
 
 function Hero({ myEmail }) {
   return (
     <Section>
       <Container>
         <div>
-          <Name>I'm Igor</Name>
+          <JackInTheBox cascade triggerOnce>
+            <Name>I'm Igor</Name>
 
-          <Heading>Web Developer</Heading>
+            <Heading>Web Developer</Heading>
+          </JackInTheBox>
         </div>
-        <Text>
-          I'll build your website to be fast and beautiful so that your visitors
-          can get the value you're offering them without any confusion.
-        </Text>
-        <ButtonContainer>
-          <ButtonOne href="/CV/IgorTrnkoCV.pdf" download>
-            <VerticalAlignBottomIcon fontSize="large" />
-            Download CV
-          </ButtonOne>
+        <Fade triggerOnce duration={2000}>
+          <Text>
+            I'll build your website to be fast and beautiful so that your
+            visitors can get the value you're offering them without any
+            confusion.
+          </Text>
+          <ButtonContainer>
+            <ButtonOne href="/CV/IgorTrnkoCV.pdf" download>
+              <VerticalAlignBottomIcon fontSize="large" />
+              Download CV
+            </ButtonOne>
 
-          <CopyButton buttonText={myEmail} Icon={MailOutlineIcon} />
-        </ButtonContainer>
+            <CopyButton buttonText={myEmail} Icon={MailOutlineIcon} />
+          </ButtonContainer>
+        </Fade>
       </Container>
 
       <ImageContainer>

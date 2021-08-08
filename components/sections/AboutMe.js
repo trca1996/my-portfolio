@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import TechCard from '../cards/TechCard'
 import SectionLayout from '../layout/SectionLayout'
+import { Zoom, Bounce } from 'react-awesome-reveal'
 
 const techs = [
   'HTML',
@@ -24,11 +25,16 @@ const AboutMe = () => {
         it every day. I can develop Web Applications using modern technologies.
       </Text>
       <br />
-      <Text>My tech stack:</Text>
+      <Bounce triggerOnce>
+        <Text>My tech stack:</Text>
+      </Bounce>
+
       <List>
-        {techs.map((tech) => (
-          <TechCard key={tech} tech={tech} />
-        ))}
+        <Zoom cascade duration={300} triggerOnce delay={300}>
+          {techs.map((tech) => (
+            <TechCard key={tech} tech={tech} />
+          ))}
+        </Zoom>
       </List>
     </SectionLayout>
   )
