@@ -64,7 +64,7 @@ const ContentContainer = styled.div`
   @media only screen and (max-width: ${extraSmallScreen}) {
     margin-left: auto;
     margin-right: auto;
-    margin-top: -5px;
+    margin-top: -10px;
     display: flex;
     flex-direction: column;
     gap: 1rem;

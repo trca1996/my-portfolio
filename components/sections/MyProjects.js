@@ -8,7 +8,11 @@ const MyProjects = ({ projects }) => {
       {projects.map(
         ({ name, description, tech, image, siteURL, gitHub, _id }, i) => (
           <Slide
-            style={{ width: '100%' }}
+            style={{
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+            }}
             direction={i % 2 ? 'left' : 'right'}
             triggerOnce
             key={_id}
