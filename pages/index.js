@@ -9,7 +9,6 @@ import AlertMessage from '../components/AlertMessage'
 import styled from 'styled-components'
 import { extraSmallScreen } from '../style/sizeVariables'
 import HeadComponent from '../components/HeadComponent'
-import Header from '../components/Header'
 
 const Home = (props) => {
   const projects = props.data
@@ -18,7 +17,6 @@ const Home = (props) => {
   return (
     <Fragment>
       <HeadComponent />
-      <Header />
       <Hero myEmail={myEmail} />
       <AboutMe />
       <MyProjects projects={projects} />

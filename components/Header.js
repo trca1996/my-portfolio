@@ -1,16 +1,13 @@
-import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { extraSmallScreen } from '../style/sizeVariables'
 import { Link } from 'react-scroll'
-import useWindowHeight from '../helper/useWindowHeight'
 import useViewportPosition from '../helper/useViewportPosition'
 
-const Header = () => {
-  const windowHeight = useWindowHeight()
+const Header = ({ sectionHeight }) => {
   const viewportPosition = useViewportPosition()
 
   return (
-    <Container viewport={viewportPosition} windowHeight={windowHeight}>
+    <Container viewport={viewportPosition} windowHeight={sectionHeight || 500}>
       <h2>
         <StyledLink to="about">About Me</StyledLink>
       </h2>
@@ -35,6 +32,7 @@ const Container = styled.div`
   position: ${({ viewport, windowHeight }) =>
     viewport < windowHeight ? 'absolute' : 'fixed'};
   top: 0;
+  right: 0;
   z-index: 1000;
   width: 100%;
 

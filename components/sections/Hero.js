@@ -14,10 +14,15 @@ import {
 import { JackInTheBox, Fade } from 'react-awesome-reveal'
 import Particles from 'react-particles-js'
 import { particlesParams } from '../../style/particles'
+import useElementHeight from '../../helper/useElementHeight'
+import Header from '../Header'
 
 function Hero({ myEmail }) {
+  const { elementHeight, elementRef } = useElementHeight()
+
   return (
-    <Section id="hero">
+    <Section id="hero" ref={elementRef}>
+      <Header sectionHeight={elementHeight} />
       <Container>
         <StyledParticles params={particlesParams} />
         <div>
@@ -84,6 +89,7 @@ const Section = styled.section`
   height: 100vh;
   position: relative;
   padding: 0 12rem;
+  min-height: 550px;
 
   @media only screen and (min-width: ${largeScreen}) {
     padding: 0 20rem;
@@ -102,10 +108,7 @@ const Section = styled.section`
 
   @media only screen and (max-width: ${extraSmallScreen}) {
     height: 90vh;
-  }
-
-  @media only screen and (max-height: ${smallScreenHeight}) {
-    height: 550px;
+    padding-top: 5rem;
   }
 `
 const Container = styled.div`
