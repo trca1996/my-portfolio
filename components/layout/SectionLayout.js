@@ -1,10 +1,5 @@
 import styled from 'styled-components'
-import {
-  bigScreen,
-  extraSmallScreen,
-  largeScreen,
-  mobileScreen,
-} from '../../style/sizeVariables'
+import { bigScreen, largeScreen, mobileScreen } from '../../style/sizeVariables'
 
 const SectionLayout = ({ children, title, section }) => {
   return (
@@ -23,6 +18,7 @@ const Section = styled.section`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.bgColor};
   padding: 6rem 25rem;
+  overflow-x: hidden;
 
   @media only screen and (min-width: ${largeScreen}) {
     padding: 6rem 40rem;

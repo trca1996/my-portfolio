@@ -9,7 +9,7 @@ const Header = ({ sectionHeight }) => {
   return (
     <Container
       viewport={viewportPosition}
-      windowHeight={sectionHeight - 3 || 500}
+      windowHeight={sectionHeight - 50 || 500}
     >
       <h2>
         <StyledLink to="about">About Me</StyledLink>
@@ -35,9 +35,9 @@ const Container = styled.div`
   position: ${({ viewport, windowHeight }) =>
     viewport < windowHeight ? 'absolute' : 'fixed'};
   top: 0;
-  right: 0;
+  left: 0;
   z-index: 1000;
-  width: 100%;
+  width: 100vw;
 
   @media only screen and (max-width: ${extraSmallScreen}) {
     padding: 2rem 15vw;
