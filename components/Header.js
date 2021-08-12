@@ -37,7 +37,7 @@ const Container = styled.div`
   top: 0;
   left: 0;
   z-index: 1000;
-  width: 100vw;
+  width: 100%;
 
   @media only screen and (max-width: ${extraSmallScreen}) {
     padding: 2rem 15vw;

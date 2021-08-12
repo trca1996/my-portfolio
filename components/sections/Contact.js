@@ -28,8 +28,8 @@ const Contact = ({ myEmail }) => {
       const response = await axios.post('/api/sendemail', data)
       alertRender(response.data.message, 'success')
     } catch (err) {
-      console.log(`🧨🧨🧨 ${err}`)
-      alertRender('Send email failed, try again later', 'error')
+      console.log(`🧨🧨🧨 ${err.response.data.message}: ${err}`)
+      alertRender(err.response.data.message, 'error')
     }
 
     reset()
