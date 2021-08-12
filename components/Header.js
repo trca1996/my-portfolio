@@ -7,7 +7,10 @@ const Header = ({ sectionHeight }) => {
   const viewportPosition = useViewportPosition()
 
   return (
-    <Container viewport={viewportPosition} windowHeight={sectionHeight || 500}>
+    <Container
+      viewport={viewportPosition}
+      windowHeight={sectionHeight - 3 || 500}
+    >
       <h2>
         <StyledLink to="about">About Me</StyledLink>
       </h2>
