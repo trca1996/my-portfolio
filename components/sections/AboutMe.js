@@ -18,7 +18,7 @@ const techs = [
 
 const AboutMe = () => {
   return (
-    <SectionLayout title="About Me">
+    <SectionLayout title="About Me" section={'about'}>
       <Text>
         Hi, I’m Igor from Serbia. I’m a student of Economy but coding is my
         passion, I have learned web development on my own and I'm still learning

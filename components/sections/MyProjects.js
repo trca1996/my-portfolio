@@ -4,7 +4,7 @@ import { Slide } from 'react-awesome-reveal'
 
 const MyProjects = ({ projects }) => {
   return (
-    <SectionLayout title="Some Things I’ve Build">
+    <SectionLayout title="Some Things I’ve Build" section={'projects'}>
       {projects.map(
         ({ name, description, tech, image, siteURL, gitHub, _id }, i) => (
           <Slide

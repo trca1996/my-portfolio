@@ -9,13 +9,17 @@ import {
   mediumScreen,
   mobileScreen,
   smallScreen,
+  smallScreenHeight,
 } from '../../style/sizeVariables'
 import { JackInTheBox, Fade } from 'react-awesome-reveal'
+import Particles from 'react-particles-js'
+import { particlesParams } from '../../style/particles'
 
 function Hero({ myEmail }) {
   return (
-    <Section>
+    <Section id="hero">
       <Container>
+        <StyledParticles params={particlesParams} />
         <div>
           <JackInTheBox cascade triggerOnce>
             <Name>I'm Igor</Name>
@@ -53,6 +57,22 @@ function Hero({ myEmail }) {
   )
 }
 
+const StyledParticles = styled(Particles)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  @media only screen and (max-height: 500px) {
+    height: 500px;
+  }
+
+  @media only screen and (max-width: ${extraSmallScreen}) {
+    height: 90vh;
+  }
+`
+
 const Section = styled.section`
   background: linear-gradient(
     270deg,
@@ -82,6 +102,10 @@ const Section = styled.section`
 
   @media only screen and (max-width: ${extraSmallScreen}) {
     height: 90vh;
+  }
+
+  @media only screen and (max-height: ${smallScreenHeight}) {
+    height: 550px;
   }
 `
 const Container = styled.div`

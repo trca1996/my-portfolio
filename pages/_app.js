@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
 html {
   // This defines what 1rem is -- 10px --
   font-size: 62.5%;
+  scroll-behavior: smooth;
  
   @media only screen and (max-width: ${smallScreen}){
     font-size: 50%;

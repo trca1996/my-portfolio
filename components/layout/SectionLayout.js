@@ -6,9 +6,9 @@ import {
   mobileScreen,
 } from '../../style/sizeVariables'
 
-const SectionLayout = ({ children, title }) => {
+const SectionLayout = ({ children, title, section }) => {
   return (
-    <Section>
+    <Section id={section}>
       <Title>
         <Line />
         <h2>{title}</h2>

@@ -36,7 +36,7 @@ const Contact = ({ myEmail }) => {
   }
 
   return (
-    <SectionLayout title="Interested? Let’s Get In Touch!">
+    <SectionLayout title="Interested? Let’s Get In Touch!" section={'contact'}>
       <Container>
         <MessageContainer
           autoCorrect="off"
