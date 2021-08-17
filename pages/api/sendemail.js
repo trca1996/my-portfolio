@@ -22,6 +22,7 @@ const sendemail = async (req, res, next) => {
       await new Email(name, email, message).send()
       return res.status(200).json({ message: 'Email was send!' })
     } catch (err) {
+      console.log(err)
       return res
         .status(500)
         .json({ message: 'Something went wrong! Try later.' })
