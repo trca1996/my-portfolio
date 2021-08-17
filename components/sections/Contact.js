@@ -89,11 +89,9 @@ const Contact = ({ myEmail }) => {
               'Message must have minimum 50 characters'}
           </InputContainer>
 
-          <StylesProvider injectFirst>
-            <StyledButton endIcon={<TrendingFlatIcon />} type="submit">
-              Send Message
-            </StyledButton>
-          </StylesProvider>
+          <StyledButton endIcon={<TrendingFlatIcon />} type="submit">
+            Send Message
+          </StyledButton>
         </MessageContainer>
         <EmailContainer>
           <div>
@@ -130,7 +128,7 @@ const MessageContainer = styled.form`
   width: 50%;
 
   @media only screen and (max-width: ${extraSmallScreen}) {
-    width: 80%;
+    width: 100%;
   }
 `
 
@@ -178,6 +176,10 @@ const StyledButton = styled(Button)`
   align-self: flex-end;
   font-weight: bold;
   font-size: 1.2rem;
+
+  @media only screen and (max-width: ${extraSmallScreen}) {
+    align-self: center;
+  }
 `
 
 const EmailContainer = styled.div`
