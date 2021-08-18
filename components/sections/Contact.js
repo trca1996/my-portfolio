@@ -89,9 +89,11 @@ const Contact = ({ myEmail }) => {
               'Message must have minimum 50 characters'}
           </InputContainer>
 
-          <StyledButton endIcon={<TrendingFlatIcon />} type="submit">
-            Send Message
-          </StyledButton>
+          <StylesProvider injectFirst>
+            <StyledButton endIcon={<TrendingFlatIcon />} type="submit">
+              Send Message
+            </StyledButton>
+          </StylesProvider>
         </MessageContainer>
         <EmailContainer>
           <div>
