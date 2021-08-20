@@ -12,7 +12,7 @@ import HeadComponent from '../components/HeadComponent'
 
 const Home = (props) => {
   const projects = props.data
-  const myEmail = 'igor.trnko@yahoo.com'
+  const myEmail = process.env.NEXT_PUBLIC_MY_EMAIL
 
   return (
     <Fragment>

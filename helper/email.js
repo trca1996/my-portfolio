@@ -27,7 +27,7 @@ module.exports = class Email {
     // 2) Define email options
     const mailOptions = {
       from: this.from,
-      to: process.env.MY_EMAIL,
+      to: process.env.NEXT_PUBLIC_MY_EMAIL,
       subject: 'Message from Portfolio',
       text: text,
     }
