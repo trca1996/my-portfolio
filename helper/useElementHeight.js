@@ -1,22 +1,22 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const useElementHeight = () => {
-  const [elementHeight, setElementHeight] = useState(0)
-  const elementRef = useRef()
+  const [elementHeight, setElementHeight] = useState(0);
+  const elementRef = useRef();
 
   const handleResize = useCallback(() => {
-    setElementHeight(elementRef?.current.offsetHeight)
-  }, [elementRef])
+    setElementHeight(elementRef?.current.offsetHeight);
+  }, [elementRef]);
 
   useEffect(() => {
-    window.addEventListener('resize', handleResize)
-    handleResize()
+    window.addEventListener("resize", handleResize);
+    handleResize();
     return () => {
-      window.addEventListener('resize', handleResize)
-    }
-  }, [])
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
-  return { elementHeight, elementRef }
-}
+  return { elementHeight, elementRef };
+};
 
-export default useElementHeight
+export default useElementHeight;
