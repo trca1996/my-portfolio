@@ -1,36 +1,44 @@
-import styled from 'styled-components'
-import Image from 'next/image'
-import VerticalAlignBottomIcon from '@material-ui/icons/VerticalAlignBottom'
-import CopyButton from '../buttons/CopyButton'
-import MailOutlineIcon from '@material-ui/icons/MailOutline'
+import styled from "styled-components";
+import Image from "next/image";
+import VerticalAlignBottomIcon from "@material-ui/icons/VerticalAlignBottom";
+import CopyButton from "../buttons/CopyButton";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import {
   extraSmallScreen,
   largeScreen,
   mediumScreen,
   mobileScreen,
   smallScreen,
-  smallScreenHeight,
-} from '../../style/sizeVariables'
-import { JackInTheBox, Fade } from 'react-awesome-reveal'
-import Particles from 'react-particles-js'
-import { particlesParams } from '../../style/particles'
-import useElementHeight from '../../helper/useElementHeight'
-import Header from '../Header'
+} from "../../style/sizeVariables";
+import { JackInTheBox, Fade } from "react-awesome-reveal";
+import Particles from "react-particles-js";
+import { particlesParams } from "../../style/particles";
+import useElementHeight from "../../helper/useElementHeight";
+import Header from "../Header";
+import { isMobile } from "react-device-detect";
 
 function Hero({ myEmail }) {
-  const { elementHeight, elementRef } = useElementHeight()
+  const { elementHeight, elementRef } = useElementHeight();
 
   return (
     <Section id="hero" ref={elementRef}>
       <Header sectionHeight={elementHeight} />
       <Container>
-        <StyledParticles params={particlesParams} />
+        {!isMobile && <StyledParticles params={particlesParams} />}
         <div>
-          <JackInTheBox cascade triggerOnce>
-            <Name>I'm Igor</Name>
+          {isMobile ? (
+            <>
+              <Name>I'm Igor</Name>
 
-            <Heading>Web Developer</Heading>
-          </JackInTheBox>
+              <Heading>Web Developer</Heading>
+            </>
+          ) : (
+            <JackInTheBox cascade triggerOnce>
+              <Name>I'm Igor</Name>
+
+              <Heading>Web Developer</Heading>
+            </JackInTheBox>
+          )}
         </div>
         <Fade triggerOnce duration={2000}>
           <Text>
@@ -59,7 +67,7 @@ function Hero({ myEmail }) {
         />
       </ImageContainer>
     </Section>
-  )
+  );
 }
 
 const StyledParticles = styled(Particles)`
@@ -76,7 +84,7 @@ const StyledParticles = styled(Particles)`
   @media only screen and (max-width: ${extraSmallScreen}) {
     height: 90vh;
   }
-`
+`;
 
 const Section = styled.section`
   background: linear-gradient(
@@ -110,7 +118,7 @@ const Section = styled.section`
     height: 90vh;
     padding-top: 5rem;
   }
-`
+`;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -121,7 +129,7 @@ const Container = styled.div`
   @media only screen and (max-width: ${mediumScreen}) {
     gap: 3rem;
   }
-`
+`;
 const Name = styled.h3`
   font-weight: 300;
   font-size: 2rem;
@@ -131,14 +139,14 @@ const Name = styled.h3`
   @media only screen and (max-width: ${mobileScreen}) {
     margin-bottom: 10px;
   }
-`
+`;
 
 const Heading = styled.h1`
   font-weight: bold;
   font-size: 6rem;
   text-shadow: ${({ theme }) => theme.textShadow};
   line-height: 1;
-`
+`;
 
 const Text = styled.p`
   font-weight: normal;
@@ -153,15 +161,15 @@ const Text = styled.p`
   @media only screen and (max-width: ${smallScreen}) {
     font-size: 2rem;
   }
-`
+`;
 
 const ButtonContainer = styled.div`
   display: flex;
   gap: 2.5rem;
   flex-wrap: wrap;
-`
+`;
 const ButtonOne = styled.a`
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -188,7 +196,7 @@ const ButtonOne = styled.a`
       filter: ${({ theme }) => theme.filter.shadowMedium};
     }
   }
-`
+`;
 
 const ImageContainer = styled.div`
   position: absolute;
@@ -201,6 +209,6 @@ const ImageContainer = styled.div`
   @media only screen and (max-width: ${mediumScreen}) {
     width: 100%;
   }
-`
+`;
 
-export default Hero
+export default Hero;
