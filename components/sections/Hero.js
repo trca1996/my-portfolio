@@ -15,46 +15,66 @@ import Particles from "react-particles-js";
 import { particlesParams } from "../../style/particles";
 import useElementHeight from "../../helper/useElementHeight";
 import Header from "../Header";
-import { isMobile } from "react-device-detect";
+import useIsTouchDevice from "../../helper/useIsTouchDevice";
 
 function Hero({ myEmail }) {
   const { elementHeight, elementRef } = useElementHeight();
+  const isTouch = useIsTouchDevice();
 
   return (
     <Section id="hero" ref={elementRef}>
       <Header sectionHeight={elementHeight} />
       <Container>
-        {!isMobile && <StyledParticles params={particlesParams} />}
+        {!isTouch && <StyledParticles params={particlesParams} />}
         <div>
-          {isMobile ? (
+          {isTouch ? (
             <>
-              <Name>I'm Igor</Name>
+              <Name>Hi, I'm Igor</Name>
 
               <Heading>Web Developer</Heading>
             </>
           ) : (
             <JackInTheBox cascade triggerOnce>
-              <Name>I'm Igor</Name>
+              <Name>Hi, I'm Igor</Name>
 
               <Heading>Web Developer</Heading>
             </JackInTheBox>
           )}
         </div>
-        <Fade triggerOnce duration={2000}>
-          <Text>
-            I'll build your website to be fast and beautiful so that your
-            visitors can get the value you're offering them without any
-            confusion.
-          </Text>
-          <ButtonContainer>
-            <ButtonOne href="/CV/IgorTrnkoCV.pdf" download>
-              <VerticalAlignBottomIcon fontSize="large" />
-              Download CV
-            </ButtonOne>
 
-            <CopyButton buttonText={myEmail} Icon={MailOutlineIcon} />
-          </ButtonContainer>
-        </Fade>
+        {isTouch ? (
+          <>
+            <Text>
+              I'll build your website to be fast and beautiful so that your
+              visitors can get the value you're offering them without any
+              confusion.
+            </Text>
+            <ButtonContainer>
+              <ButtonOne href="/CV/IgorTrnkoCV.pdf" download>
+                <VerticalAlignBottomIcon fontSize="large" />
+                Download CV
+              </ButtonOne>
+
+              <CopyButton buttonText={myEmail} Icon={MailOutlineIcon} />
+            </ButtonContainer>
+          </>
+        ) : (
+          <Fade triggerOnce duration={2000}>
+            <Text>
+              I'll build your website to be fast and beautiful so that your
+              visitors can get the value you're offering them without any
+              confusion.
+            </Text>
+            <ButtonContainer>
+              <ButtonOne href="/CV/IgorTrnkoCV.pdf" download>
+                <VerticalAlignBottomIcon fontSize="large" />
+                Download CV
+              </ButtonOne>
+
+              <CopyButton buttonText={myEmail} Icon={MailOutlineIcon} />
+            </ButtonContainer>
+          </Fade>
+        )}
       </Container>
 
       <ImageContainer>
@@ -64,6 +84,7 @@ function Hero({ myEmail }) {
           layout="fill"
           objectFit="cover"
           priority
+
         />
       </ImageContainer>
     </Section>

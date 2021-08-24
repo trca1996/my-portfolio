@@ -1,30 +1,31 @@
-import { useState } from 'react'
-import { useEffect } from 'react'
-import styled from 'styled-components'
-import useHover from '../../helper/useHover'
-import copy from 'copy-to-clipboard'
-import { isMobile } from 'react-device-detect'
+import { useState } from "react";
+import { useEffect } from "react";
+import styled from "styled-components";
+import useHover from "../../helper/useHover";
+import copy from "copy-to-clipboard";
+import useIsTouchDevice from "../../helper/useIsTouchDevice";
 
 const CopyButton = ({ Icon, buttonText }) => {
-  const [hovering, hoverProps] = useHover()
-  const [copyText, setCopyText] = useState(null)
+  const [hovering, hoverProps] = useHover();
+  const [copyText, setCopyText] = useState(null);
+  const isTouch = useIsTouchDevice();
 
   const onCopyText = (e) => {
-    setCopyText(e.target.closest('.buttonEmail').value)
-    copy(e.target.closest('.buttonEmail').value)
-  }
+    setCopyText(e.target.closest(".buttonEmail").value);
+    copy(e.target.closest(".buttonEmail").value);
+  };
 
   useEffect(() => {
     if (copyText) {
       const timer = setTimeout(() => {
-        setCopyText(null)
-      }, 2500)
+        setCopyText(null);
+      }, 2500);
 
       return () => {
-        clearTimeout(timer)
-      }
+        clearTimeout(timer);
+      };
     }
-  })
+  });
 
   return (
     <Button
@@ -36,18 +37,18 @@ const CopyButton = ({ Icon, buttonText }) => {
       <div></div>
       {Icon && <Icon fontSize="large" />}
       {copyText
-        ? 'Copied!'
+        ? "Copied!"
         : hovering
-        ? isMobile
+        ? isTouch
           ? buttonText
-          : 'Copy to clipboard'
+          : "Copy to clipboard"
         : buttonText}
     </Button>
-  )
-}
+  );
+};
 
 const Button = styled.button`
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -90,6 +91,6 @@ const Button = styled.button`
   &:hover > div {
     width: 100%;
   }
-`
+`;
 
-export default CopyButton
+export default CopyButton;

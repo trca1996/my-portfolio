@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import Image from 'next/image'
-import Link from 'next/link'
-import { extraSmallScreen, smallScreen } from '../../style/sizeVariables'
+import styled from "styled-components";
+import Image from "next/image";
+import Link from "next/link";
+import { extraSmallScreen, smallScreen } from "../../style/sizeVariables";
 
 const ProjectCard = ({
   name,
@@ -15,7 +15,13 @@ const ProjectCard = ({
   return (
     <Container align={align}>
       <ImageContainer>
-        <StyledImage src={image} alt={name} objectFit="cover" layout="fill" />
+        <StyledImage
+          src={image}
+          alt={name}
+          objectFit="cover"
+          layout="fill"
+          // placeholder="blur"
+        />
       </ImageContainer>
 
       <ContentContainer align={align}>
@@ -46,16 +52,16 @@ const ProjectCard = ({
         </BottomItems>
       </ContentContainer>
     </Container>
-  )
-}
+  );
+};
 
 const ContentContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.secondary};
   border-radius: 1rem;
   position: relative;
   padding: 2rem 3rem;
-  margin-left: ${({ align }) => (align === 'left' ? 'auto' : '-7rem')};
-  margin-right: ${({ align }) => (align === 'right' ? 'auto' : '-7rem')};
+  margin-left: ${({ align }) => (align === "left" ? "auto" : "-7rem")};
+  margin-right: ${({ align }) => (align === "right" ? "auto" : "-7rem")};
   z-index: 100;
   box-shadow: ${({ theme }) => theme.boxShadow.shadowSmall};
   transition: all 0.2s ease-in-out;
@@ -69,13 +75,13 @@ const ContentContainer = styled.div`
     flex-direction: column;
     gap: 1rem;
   }
-`
+`;
 
 const Container = styled.div`
   margin-bottom: 5rem;
   display: flex;
   align-items: center;
-  flex-direction: ${({ align }) => (align === 'right' ? 'row' : 'row-reverse')};
+  flex-direction: ${({ align }) => (align === "right" ? "row" : "row-reverse")};
   width: 100%;
 
   @media (hover: hover) {
@@ -89,7 +95,7 @@ const Container = styled.div`
     flex-direction: column;
     width: 90%;
   }
-`
+`;
 
 const ImageContainer = styled.div`
   min-width: 50%;
@@ -102,19 +108,19 @@ const ImageContainer = styled.div`
     z-index: 150;
     width: 100%;
   }
-`
+`;
 
 const StyledImage = styled(Image)`
   border-radius: 1rem;
-`
+`;
 
 const Name = styled.h4`
   font-weight: bold;
   font-size: 2rem;
   position: absolute;
   top: -3.5rem;
-  right: ${({ align }) => (align === 'right' ? '0' : 'auto')};
-  left: ${({ align }) => (align === 'left' ? '0' : 'auto')};
+  right: ${({ align }) => (align === "right" ? "0" : "auto")};
+  left: ${({ align }) => (align === "left" ? "0" : "auto")};
 
   @media only screen and (max-width: ${extraSmallScreen}) {
     position: relative;
@@ -122,7 +128,7 @@ const Name = styled.h4`
     right: auto;
     left: auto;
   }
-`
+`;
 
 const Description = styled.p`
   font-weight: normal;
@@ -139,16 +145,16 @@ const Description = styled.p`
   @media only screen and (max-width: ${extraSmallScreen}) {
     text-align: justify;
   }
-`
+`;
 
 const BottomItems = styled.div`
   position: absolute;
   bottom: -4rem;
-  right: ${({ align }) => (align === 'right' ? '0' : 'auto')};
-  left: ${({ align }) => (align === 'left' ? '0' : 'auto')};
+  right: ${({ align }) => (align === "right" ? "0" : "auto")};
+  left: ${({ align }) => (align === "left" ? "0" : "auto")};
 
   display: flex;
-  flex-direction: ${({ align }) => (align === 'right' ? 'row' : 'row-reverse')};
+  flex-direction: ${({ align }) => (align === "right" ? "row" : "row-reverse")};
   justify-content: space-between;
   width: calc(100% - 8rem);
 
@@ -161,7 +167,7 @@ const BottomItems = styled.div`
     width: 100%;
     flex-direction: row;
   }
-`
+`;
 
 const Techs = styled.ul`
   font-weight: normal;
@@ -171,16 +177,16 @@ const Techs = styled.ul`
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-`
-const Tech = styled.li``
+`;
+const Tech = styled.li``;
 
 const Icons = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
   justify-content: ${({ align }) =>
-    align === 'right' ? 'flex-end' : 'flex-start'};
-`
+    align === "right" ? "flex-end" : "flex-start"};
+`;
 const Icon = styled.img`
   transition: all 0.2s ease-in-out;
   width: 2.7rem;
@@ -192,6 +198,6 @@ const Icon = styled.img`
       transform: scale(1.3);
     }
   }
-`
+`;
 
-export default ProjectCard
+export default ProjectCard;
