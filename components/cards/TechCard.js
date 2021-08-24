@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const TechCard = ({ tech }) => {
   return (
@@ -6,8 +6,8 @@ const TechCard = ({ tech }) => {
       <img src={`/images/icons/${tech}.svg`} alt={`${tech}`} />
       <p>{tech}</p>
     </Card>
-  )
-}
+  );
+};
 
 const Card = styled.li`
   display: flex;
@@ -24,11 +24,13 @@ const Card = styled.li`
 
   img {
     filter: ${({ theme }) => theme.filter.shadowMedium};
+    width: 3.5rem;
+    height: 5rem;
   }
 
   p {
     filter: ${({ theme }) => theme.filter.shadowSmall};
   }
-`
+`;
 
-export default TechCard
+export default TechCard;
