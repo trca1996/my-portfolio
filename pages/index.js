@@ -1,11 +1,7 @@
 import Hero from "../components/sections/Hero";
 import { Fragment } from "react";
-// import AboutMe from "../components/sections/AboutMe";
 import SocialNetworks from "../components/SocialNetworks";
-// import MyProjects from "../components/sections/MyProjects";
 import { connectToDatabase } from "../helper/db-util";
-// import Contact from "../components/sections/Contact";
-// import AlertMessage from "../components/AlertMessage";
 import styled from "styled-components";
 import { extraSmallScreen } from "../style/sizeVariables";
 import HeadComponent from "../components/HeadComponent";
