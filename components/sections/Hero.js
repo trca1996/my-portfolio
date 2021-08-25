@@ -11,11 +11,13 @@ import {
   smallScreen,
 } from "../../style/sizeVariables";
 import { JackInTheBox, Fade } from "react-awesome-reveal";
-import Particles from "react-particles-js";
 import { particlesParams } from "../../style/particles";
 import useElementHeight from "../../helper/useElementHeight";
 import Header from "../Header";
 import useIsTouchDevice from "../../helper/useIsTouchDevice";
+import dynamic from "next/dynamic";
+
+const DynamicParticles = dynamic(() => import("react-particles-js"));
 
 function Hero({ myEmail }) {
   const { elementHeight, elementRef } = useElementHeight();
@@ -84,14 +86,13 @@ function Hero({ myEmail }) {
           layout="fill"
           objectFit="cover"
           priority
-
         />
       </ImageContainer>
     </Section>
   );
 }
 
-const StyledParticles = styled(Particles)`
+const StyledParticles = styled(DynamicParticles)`
   position: absolute;
   top: 0;
   left: 0;

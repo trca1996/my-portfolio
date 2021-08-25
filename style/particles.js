@@ -1,12 +1,12 @@
 export const particlesParams = {
   particles: {
     number: { value: 80, density: { enable: true, value_area: 800 } },
-    color: { value: '#8898aa' },
+    color: { value: "#8898aa" },
     shape: {
-      type: 'circle',
-      stroke: { width: 0, color: '#000000' },
+      type: "circle",
+      stroke: { width: 0, color: "#000000" },
       polygon: { nb_sides: 5 },
-      image: { src: 'img/github.svg', width: 100, height: 100 },
+      image: { src: "img/github.svg", width: 100, height: 100 },
     },
     opacity: {
       value: 0.5,
@@ -21,26 +21,24 @@ export const particlesParams = {
     line_linked: {
       enable: true,
       distance: 150,
-      color: '#8898aa',
+      color: "#8898aa",
       opacity: 0.48138006139568634,
       width: 1.1048066982851816,
     },
     move: {
       enable: true,
       speed: 6,
-      direction: 'none',
+      direction: "none",
       random: false,
       straight: false,
-      out_mode: 'out',
+      out_mode: "out",
       bounce: false,
       attract: { enable: false, rotateX: 600, rotateY: 1200 },
     },
   },
   interactivity: {
-    detect_on: 'canvas',
+    detect_on: "canvas",
     events: {
-      onhover: { enable: true, mode: 'repulse' },
-      onclick: { enable: false, mode: 'push' },
       resize: true,
     },
     modes: {
@@ -58,4 +56,4 @@ export const particlesParams = {
     },
   },
   retina_detect: true,
-}
+};
