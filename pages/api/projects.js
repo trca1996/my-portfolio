@@ -8,8 +8,8 @@ import { connectToDatabase } from "../../helper/db-util";
 // SLUG NAMING
 const slug = (name) => {
   return slugify(name, {
-    replacement: "_",
     lower: true,
+    strict: true,
   });
 };
 
