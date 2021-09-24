@@ -15,7 +15,7 @@ const DynamicContact = dynamic(() => import("../components/sections/Contact"));
 const DynamicAlertMessage = dynamic(() => import("../components/AlertMessage"));
 
 const Home = (props) => {
-  const projects = props.data;
+  const { projects } = props;
   const myEmail = process.env.NEXT_PUBLIC_MY_EMAIL;
 
   return (
@@ -34,14 +34,14 @@ const Home = (props) => {
 
 export async function getStaticProps() {
   const { db } = await connectToDatabase();
-  const data = await db
+  const projects = await db
     .collection("projects")
     .find({})
     .sort({ _id: -1 })
     .toArray();
 
   return {
-    props: { data: JSON.parse(JSON.stringify(data)) },
+    props: { projects: JSON.parse(JSON.stringify(projects)) },
     revalidate: 600,
   };
 }
