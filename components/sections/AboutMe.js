@@ -6,11 +6,13 @@ const techs = [
   "HTML",
   "CSS",
   "JavaScript",
+  "Typescript",
   "ReactJS",
   "NextJS",
   "Redux",
   "SASS",
   "Styled-Components",
+  "Tailwindcss",
   "NodeJS",
   "MongoDB",
 ];

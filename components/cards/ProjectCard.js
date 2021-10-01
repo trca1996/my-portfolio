@@ -20,6 +20,7 @@ const ProjectCard = ({
           alt={name}
           objectFit="cover"
           layout="fill"
+          priority
           // placeholder="blur"
         />
       </ImageContainer>
