@@ -63,7 +63,7 @@ const Button = styled.button`
   transition: all 0.15s;
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.secondary};
-  min-width: 25.5rem;
+  min-width: 29rem;
   position: relative;
 
   @media (hover: hover) {
