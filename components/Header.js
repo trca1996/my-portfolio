@@ -1,10 +1,10 @@
-import styled from 'styled-components'
-import { extraSmallScreen } from '../style/sizeVariables'
-import { Link } from 'react-scroll'
-import useViewportPosition from '../helper/useViewportPosition'
+import styled from "styled-components";
+import { extraSmallScreen } from "../style/sizeVariables";
+import { Link } from "react-scroll";
+import useViewportPosition from "../helper/useViewportPosition";
 
 const Header = ({ sectionHeight }) => {
-  const viewportPosition = useViewportPosition()
+  const viewportPosition = useViewportPosition();
 
   return (
     <Container
@@ -21,19 +21,19 @@ const Header = ({ sectionHeight }) => {
         <StyledLink to="contact">Contact</StyledLink>
       </h2>
     </Container>
-  )
-}
+  );
+};
 
 const Container = styled.div`
   background: ${({ viewport, windowHeight }) =>
     viewport < windowHeight
-      ? 'linear-gradient(180deg,rgba(28, 28, 28, 0.9) 0%,rgba(28, 28, 28, 0) 100%)'
-      : 'rgb(28, 28, 28)'};
+      ? "linear-gradient(180deg,rgba(28, 28, 28, 0.9) 0%,rgba(28, 28, 28, 0) 100%)"
+      : "rgb(28, 28, 28)"};
   display: flex;
   justify-content: space-between;
   padding: 2rem 25vw;
   position: ${({ viewport, windowHeight }) =>
-    viewport < windowHeight ? 'absolute' : 'fixed'};
+    viewport < windowHeight ? "absolute" : "fixed"};
   top: 0;
   left: 0;
   z-index: 1000;
@@ -42,12 +42,12 @@ const Container = styled.div`
   @media only screen and (max-width: ${extraSmallScreen}) {
     padding: 2rem 15vw;
   }
-`
+`;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.textColor};
   cursor: pointer;
-`
+`;
 
-export default Header
+export default Header;
